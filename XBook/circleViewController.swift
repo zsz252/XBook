@@ -98,12 +98,12 @@ class circleViewController: UIViewController,UITableViewDelegate,UITableViewData
     func headerRefresh(){
         let loveArr = NSMutableArray()
         let LoveQuery = AVQuery(className: "Love")
-        LoveQuery.order(byDescending: "createdAt")
-        LoveQuery.limit = 20
-        LoveQuery.skip = 0
-        LoveQuery.whereKey("user", equalTo: AVUser.current())
-        LoveQuery.includeKey("BookObject")
-        LoveQuery.findObjectsInBackground { (results, error) in
+        LoveQuery?.order(byDescending: "createdAt")
+        LoveQuery?.limit = 20
+        LoveQuery?.skip = 0
+        LoveQuery?.whereKey("user", equalTo: AVUser.current())
+        LoveQuery?.includeKey("BookObject")
+        LoveQuery?.findObjectsInBackground { (results, error) in
             loveArr.addObjects(from: results!)
             self.tableView?.mj_header.endRefreshing()
             self.dataArray.removeAllObjects()
@@ -119,12 +119,12 @@ class circleViewController: UIViewController,UITableViewDelegate,UITableViewData
     func footerRefresh(){
         let loveArr = NSMutableArray()
         let LoveQuery = AVQuery(className: "Love")
-        LoveQuery.order(byDescending: "createdAt")
-        LoveQuery.limit = 20
-        LoveQuery.skip = self.dataArray.count
-        LoveQuery.whereKey("user", equalTo: AVUser.current())
-        LoveQuery.includeKey("BookObject")
-        LoveQuery.findObjectsInBackground { (results, error) in
+        LoveQuery?.order(byDescending: "createdAt")
+        LoveQuery?.limit = 20
+        LoveQuery?.skip = self.dataArray.count
+        LoveQuery?.whereKey("user", equalTo: AVUser.current())
+        LoveQuery?.includeKey("BookObject")
+        LoveQuery?.findObjectsInBackground { (results, error) in
             loveArr.addObjects(from: results!)
             self.tableView?.mj_footer.endRefreshing()
             for object in loveArr {

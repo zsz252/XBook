@@ -99,7 +99,7 @@ class userViewController: UIViewController {
             self.nPassword?.text = ""
             self.rPassword?.text = ""
         }else{
-            AVUser.current().updatePassword((self.oPassword?.text)!, newPassword: (self.nPassword?.text)!, block: { (success, error) in
+            AVUser.current()?.updatePassword((self.oPassword?.text)!, newPassword: (self.nPassword?.text)!, block: { (success, error) in
                 if (success != nil){
                     ProgressHUD.showSuccess("修改成功")
                 }else{

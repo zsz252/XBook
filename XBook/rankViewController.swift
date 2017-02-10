@@ -121,11 +121,11 @@ class rankViewController: UIViewController,JRSegmentControlDelegate,UITableViewD
     
     func headerRefresh(){
         let query = AVQuery(className: "Book")
-        query.order(byDescending: num)
-        query.limit = 20
-        query.skip = 0
-        query.includeKey("user")
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: num)
+        query?.limit = 20
+        query?.skip = 0
+        query?.includeKey("user")
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_header.endRefreshing()
             self.dataArr.removeAllObjects()
             self.dataArr.addObjects(from: results!)
@@ -135,12 +135,12 @@ class rankViewController: UIViewController,JRSegmentControlDelegate,UITableViewD
     
     func footerRefresh(){
         let query = AVQuery(className: "Book")
-        query.order(byDescending: num)
-        query.limit = 20
-        query.skip = self.dataArr.count
-        query.includeKey("user")
-        query.skip = self.dataArr.count
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: num)
+        query?.limit = 20
+        query?.skip = self.dataArr.count
+        query?.includeKey("user")
+        query?.skip = self.dataArr.count
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_footer.endRefreshing()
             self.dataArr.addObjects(from: results!)
             self.tableView?.reloadData()

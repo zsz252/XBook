@@ -88,11 +88,11 @@ class searchViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func headerRefresh(){
         let query = AVQuery(className: "Book")
-        query.order(byDescending: "createdAt")
-        query.limit = 5
-        query.skip = 0
-        query.includeKey("user")
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: "createdAt")
+        query?.limit = 5
+        query?.skip = 0
+        query?.includeKey("user")
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_header.endRefreshing()
             self.dataArr.removeAllObjects()
             self.dataArr.addObjects(from: results!)
@@ -102,12 +102,12 @@ class searchViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func footerRefresh(){
         let query = AVQuery(className: "Book")
-        query.order(byDescending: "createdAt")
-        query.limit = 5
-        query.skip = self.dataArr.count
-        query.includeKey("user")
-        query.skip = self.dataArr.count
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: "createdAt")
+        query?.limit = 5
+        query?.skip = self.dataArr.count
+        query?.includeKey("user")
+        query?.skip = self.dataArr.count
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_footer.endRefreshing()
             self.dataArr.addObjects(from: results!)
             self.tableView?.reloadData()

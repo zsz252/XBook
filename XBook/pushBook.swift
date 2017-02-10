@@ -28,7 +28,7 @@ class pushBook: NSObject {
         object.setObject(AVUser.current(), forKey: "user")
         let image = dict["BookCover"] as? UIImage
         let coverFile = AVFile(data: UIImagePNGRepresentation(image!)!)
-        coverFile.saveInBackground { (success, error) in
+        coverFile?.saveInBackground { (success, error) in
             if success{
                 object.setObject(coverFile, forKey: "cover")
                 object.saveInBackground({ (success, error) in

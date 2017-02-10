@@ -100,14 +100,14 @@ class commentViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func headerRefresh(){
         let query = AVQuery(className: "discuss")
-        query.order(byDescending: "createdAt")
-        query.limit = 20
-        query.skip = 0
-        query.whereKey("user", equalTo: AVUser.current())
-        query.whereKey("BookObject", equalTo: self.BookObject!)
-        query.includeKey("user")
-        query.includeKey("BookObject")
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: "createdAt")
+        query?.limit = 20
+        query?.skip = 0
+        query?.whereKey("user", equalTo: AVUser.current())
+        query?.whereKey("BookObject", equalTo: self.BookObject!)
+        query?.includeKey("user")
+        query?.includeKey("BookObject")
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_header.endRefreshing()
             
             self.dataArray.removeAllObjects()
@@ -118,14 +118,14 @@ class commentViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func footerRefresh(){
         let query = AVQuery(className: "discuss")
-        query.order(byDescending: "createdAt")
-        query.limit = 20
-        query.skip = self.dataArray.count
-        query.whereKey("user", equalTo: AVUser.current())
-        query.whereKey("BookObject", equalTo: self.BookObject!)
-        query.includeKey("user")
-        query.includeKey("BookObject")
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: "createdAt")
+        query?.limit = 20
+        query?.skip = self.dataArray.count
+        query?.whereKey("user", equalTo: AVUser.current())
+        query?.whereKey("BookObject", equalTo: self.BookObject!)
+        query?.includeKey("user")
+        query?.includeKey("BookObject")
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_footer.endRefreshing()
             
             self.dataArray.addObjects(from: results!)
@@ -153,10 +153,10 @@ class commentViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func publishButtonDidClick(_ button: UIButton!) {
         ProgressHUD.show("")
         let object = AVObject(className: "discuss")
-        object.setObject(self.input?.inputTextView.text, forKey: "text")
-        object.setObject(AVUser.current(), forKey: "user")
-        object.setObject(self.BookObject!, forKey: "BookObject")
-        object.saveInBackground { (success, error) in
+        object?.setObject(self.input?.inputTextView.text, forKey: "text")
+        object?.setObject(AVUser.current(), forKey: "user")
+        object?.setObject(self.BookObject!, forKey: "BookObject")
+        object?.saveInBackground { (success, error) in
             if success{
                 self.input?.inputTextView.resignFirstResponder()
                 self.input?.inputTextView.text = ""

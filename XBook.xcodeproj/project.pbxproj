@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181B4B001E4E2A240074C480 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181B4AFF1E4E2A230074C480 /* AVOSCloud.framework */; };
 		181FB2CB1DC72D0E0021AA78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FB2C91DC72D0E0021AA78 /* LoginViewController.swift */; };
 		181FB2CE1DC72D720021AA78 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FB2CD1DC72D720021AA78 /* RegisterViewController.swift */; };
-		181FB95D1DC73BA50021AA78 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181FB95C1DC73BA50021AA78 /* AVOSCloud.framework */; };
 		1830C4231DD376FE00049946 /* discussCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830C4221DD376FE00049946 /* discussCell.swift */; };
 		18313B821DC7942D00E12BB2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18313B811DC7942D00E12BB2 /* Login.storyboard */; };
 		183419571DE2E9150062C82F /* userViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183419561DE2E9150062C82F /* userViewController.swift */; };
@@ -185,6 +185,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181B4AFF1E4E2A230074C480 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = XBook/AVOSCloud.framework; sourceTree = "<group>"; };
 		181FB2C91DC72D0E0021AA78 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		181FB2CD1DC72D720021AA78 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		181FB95C1DC73BA50021AA78 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = "../../../Downloads/XBook/release-v3.1.6.7/Static/AVOSCloud.framework"; sourceTree = "<group>"; };
@@ -435,6 +436,7 @@
 				188D34431DB9156300A3B28D /* libsqlite3.tbd in Frameworks */,
 				184FB3791DDB6AA300379C28 /* JavaScriptCore.framework in Frameworks */,
 				184FB3771DDB6A9C00379C28 /* libstdc++.tbd in Frameworks */,
+				181B4B001E4E2A240074C480 /* AVOSCloud.framework in Frameworks */,
 				184FB3751DDB6A9100379C28 /* libz.1.2.5.tbd in Frameworks */,
 				188D34411DB9155B00A3B28D /* libicucore.tbd in Frameworks */,
 				184FB3631DDB699900379C28 /* ShareSDKConfigFile.framework in Frameworks */,
@@ -454,7 +456,6 @@
 				184FB36C1DDB699900379C28 /* libWeiboSDK.a in Frameworks */,
 				184FB3691DDB699900379C28 /* WechatConnector.framework in Frameworks */,
 				188D34351DB9150D00A3B28D /* SystemConfiguration.framework in Frameworks */,
-				181FB95D1DC73BA50021AA78 /* AVOSCloud.framework in Frameworks */,
 				184FB3611DDB699900379C28 /* ShareSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -852,6 +853,7 @@
 		188D34331DB9150D00A3B28D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				181B4AFF1E4E2A230074C480 /* AVOSCloud.framework */,
 				184FB37C1DDB6D5400379C28 /* AdSupport.framework */,
 				184FB37A1DDB6D4D00379C28 /* ImageIO.framework */,
 				184FB3781DDB6AA300379C28 /* JavaScriptCore.framework */,
@@ -1580,6 +1582,7 @@
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/XBook",
 				);
 				INFOPLIST_FILE = XBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1611,6 +1614,7 @@
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/XBook",
 				);
 				INFOPLIST_FILE = XBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

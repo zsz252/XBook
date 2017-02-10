@@ -21,7 +21,7 @@ class moreViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var arr:NSArray = ["账号管理","帮助提示","关于我们"]
     
     override func viewWillAppear(_ animated: Bool) {
-        userLable?.text = AVUser.current().username
+        userLable?.text = AVUser.current()?.username
     }
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class moreViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         userLable = UILabel(frame: CGRect(x: 122, y: 220, width: 130, height: 40))
         userLable?.textAlignment = .center
-        userLable?.text = AVUser.current().username
+        userLable?.text = AVUser.current()?.username
         userLable?.font = UIFont(name: MY_FONT, size: 14)
         self.view.addSubview(userLable!)
         

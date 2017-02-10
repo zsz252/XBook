@@ -166,8 +166,8 @@ class pushViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             ProgressHUD.show("")
             
             let disscussQuery = AVQuery(className: "discuss")
-            disscussQuery.whereKey("BookObject", equalTo: object!)
-            disscussQuery.findObjectsInBackground({ (results, error) in
+            disscussQuery?.whereKey("BookObject", equalTo: object!)
+            disscussQuery?.findObjectsInBackground({ (results, error) in
                 for Book in results! {
                     let BookObject = Book as? AVObject
                     BookObject?.deleteInBackground()
@@ -175,8 +175,8 @@ class pushViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             })
             
             let loveQuery = AVQuery(className: "Love")
-            loveQuery.whereKey("BookObject", equalTo: object!)
-            loveQuery.findObjectsInBackground({ (results, error) in
+            loveQuery?.whereKey("BookObject", equalTo: object!)
+            loveQuery?.findObjectsInBackground({ (results, error) in
                 for Book in results! {
                     let BookObject = Book as? AVObject
                     BookObject?.deleteInBackground()
@@ -198,12 +198,12 @@ class pushViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //上拉加载 下拉刷新
     func headerRefresh(){
         let query = AVQuery(className: "Book")
-        query.order(byDescending: "createdAt")
+        query?.order(byDescending: "createdAt")
         
-        query.limit = 20
-        query.skip = 0
-        query.whereKey("user", equalTo: AVUser.current())
-        query.findObjectsInBackground { (results, error) in
+        query?.limit = 20
+        query?.skip = 0
+        query?.whereKey("user", equalTo: AVUser.current())
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_header.endRefreshing()
             self.dataArray.removeAllObjects()
             self.dataArray.addObjects(from: results!)
@@ -213,11 +213,11 @@ class pushViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func footerRefresh(){
         let query = AVQuery(className: "Book")
-        query.order(byDescending: "createdAt")
-        query.limit = 20
-        query.skip = self.dataArray.count
-        query.whereKey("user", equalTo: AVUser.current())
-        query.findObjectsInBackground { (results, error) in
+        query?.order(byDescending: "createdAt")
+        query?.limit = 20
+        query?.skip = self.dataArray.count
+        query?.whereKey("user", equalTo: AVUser.current())
+        query?.findObjectsInBackground { (results, error) in
             self.tableView?.mj_footer.endRefreshing()
             self.dataArray.addObjects(from: results!)
             self.tableView?.reloadData()

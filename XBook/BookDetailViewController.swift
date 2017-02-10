@@ -67,9 +67,9 @@ class BookDetailViewController: UIViewController,BookTabBarDelegate,InputViewDel
     //是否点赞初始化
     func isLove(){
         let query = AVQuery(className: "Love")
-        query.whereKey("user", equalTo: AVUser.current())
-        query.whereKey("BookObject", equalTo: self.BookObject!)
-        query.findObjectsInBackground { (results, error) in
+        query?.whereKey("user", equalTo: AVUser.current())
+        query?.whereKey("BookObject", equalTo: self.BookObject!)
+        query?.findObjectsInBackground { (results, error) in
             if results != nil && results?.count != 0{
                 let btn = self.BookViewTabbar?.viewWithTag(2) as? UIButton
                 btn?.setImage(UIImage(named:"solidheart"), for: .normal)
@@ -137,10 +137,10 @@ class BookDetailViewController: UIViewController,BookTabBarDelegate,InputViewDel
     func publishButtonDidClick(_ button: UIButton!) {
         ProgressHUD.show("")
         let object = AVObject(className: "discuss")
-        object.setObject(self.input?.inputTextView.text, forKey: "text")
-        object.setObject(AVUser.current(), forKey: "user")
-        object.setObject(self.BookObject!, forKey: "BookObject")
-        object.saveInBackground { (success, error) in
+        object?.setObject(self.input?.inputTextView.text, forKey: "text")
+        object?.setObject(AVUser.current(), forKey: "user")
+        object?.setObject(self.BookObject!, forKey: "BookObject")
+        object?.saveInBackground { (success, error) in
             if success{
                 self.input?.inputTextView.resignFirstResponder()
                 self.input?.inputTextView.text = ""
@@ -219,9 +219,9 @@ class BookDetailViewController: UIViewController,BookTabBarDelegate,InputViewDel
         btn.setImage(UIImage(named:"redheart"), for: .normal)
         
         let query = AVQuery(className: "Love")
-        query.whereKey("user", equalTo: AVUser.current())
-        query.whereKey("BookObject", equalTo: self.BookObject!)
-        query.findObjectsInBackground { (results, error) in
+        query?.whereKey("user", equalTo: AVUser.current())
+        query?.whereKey("BookObject", equalTo: self.BookObject!)
+        query?.findObjectsInBackground { (results, error) in
             if results != nil && results?.count != 0{
                 for object in results!{
                     let love = object as? AVObject
@@ -232,9 +232,9 @@ class BookDetailViewController: UIViewController,BookTabBarDelegate,InputViewDel
                 self.BookObject?.saveInBackground()
             }else{
                 let object = AVObject(className: "Love")
-                object.setObject(AVUser.current(), forKey: "user")
-                object.setObject(self.BookObject, forKey: "BookObject")
-                object.saveInBackground({ (success, error) in
+                object?.setObject(AVUser.current(), forKey: "user")
+                object?.setObject(self.BookObject, forKey: "BookObject")
+                object?.saveInBackground({ (success, error) in
                     if success{
                         btn.setImage(UIImage(named:"solidheart"), for: .normal)
                         self.BookObject?.incrementKey("loveNum", byAmount: NSNumber(value: 1))

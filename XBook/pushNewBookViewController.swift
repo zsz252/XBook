@@ -129,7 +129,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             pushBook.pushBookInBackground(dict: dict as NSDictionary , object: self.BookObject! )
         }else {
             let object = AVObject(className: "Book")
-            pushBook.pushBookInBackground(dict: dict as NSDictionary, object: object)
+            pushBook.pushBookInBackground(dict: dict as NSDictionary, object: object!)
         }
     }
     //键盘隐藏
